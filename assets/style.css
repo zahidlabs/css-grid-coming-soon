@@ -1,0 +1,229 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+:root {
+  font-size: 16px;
+  --yellow: #ffc600;
+  --black: #272727;
+  --white: #fff0f0;
+  /*--grad: linear-gradient(110deg, #f93d66, #6d47d9);*/
+  --grad1: #0f2027;
+  --grad2: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  --grad3: linear-gradient(to right, #2c5364, #203a43, #0f2027), #0f2027;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --black: #fff0f0;
+    --white: #272727;
+    --yellow: #826500;
+    --grad1: #ffefba;
+    --grad2: -webkit-linear-gradient(to right, #ffffff, #ffefba);
+    --grad3: linear-gradient(to right, #ffffff, #ffefba);
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 16px;
+  color: var(--black);
+}
+
+*,
+*:before,
+*:after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+p {
+  color: var(--white);
+  margin-bottom: 0.7em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+  color: var(--white);
+  line-height: 110%;
+}
+h1 {
+  font-size: clamp(1.3rem, 4vw, 3rem);
+}
+h2 {
+  font-size: clamp(1.1rem, 3vw, 2rem);
+}
+h3 {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+a {
+  color: var(--white);
+}
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+header {
+  display: none;
+}
+
+body {
+  text-align: center;
+  background: var(--grad1);
+  background: var(--grad2);
+  background: var(--grad3);
+  background-attachment: fixed;
+  letter-spacing: -1px;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+main {
+  width: min(100vw, 1200px);
+  margin: auto;
+}
+.main-container {
+  margin: 10px;
+  padding: 100px;
+  border: 1px solid var(--white);
+}
+
+.article-container svg,
+.orderBox svg {
+  width: min(100vw - 20px, 150px);
+  height: auto;
+}
+
+figcaption {
+  display: none;
+}
+
+.title {
+  color: var(--yellow);
+}
+.web-name {
+  color: var(--yellow);
+}
+.social-title {
+  padding-top: 15px;
+}
+.social li a {
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+/***************** media ****************/
+
+@media (max-width: 800px) {
+  .main-container {
+    padding: 5px;
+    margin: 5px;
+  }
+}
+
+@supports (display: grid) {
+  main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px;
+    margin: 0px;
+    display: grid;
+    grid-template: 1vw 1fr 1vw / 1vw 1fr 1vw;
+  }
+  .main-container {
+    grid-area: 2/2;
+    width: 100%;
+    margin: 0px;
+    padding: 5px;
+    /*border: 0px;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-gap: 10px;
+    grid-template-areas:
+      'arti ib'
+      'arti emt'
+      'arti ob';
+  }
+  .main-container article {
+    grid-area: arti;
+    align-self: end;
+  }
+  .infoBox {
+    padding-top: 30px;
+    grid-area: ib;
+    text-align: right;
+  }
+  .orderBox {
+    grid-area: ob;
+  }
+  .aside-container {
+    text-align: right;
+    height: 100%;
+    padding-bottom: 1em;
+    display: grid;
+    grid-gap: 10px;
+    align-content: end;
+  }
+  .article-container {
+    text-align: left;
+    display: grid;
+    grid-gap: 10px;
+  }
+  .title {
+    padding: 7px;
+    border-left: 4px solid var(--yellow);
+  }
+  .under-work {
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--yellow);
+  }
+  .social {
+    padding-top: 5px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+    justify-content: end;
+  }
+  @media (max-width: 500px) {
+    .main-container {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'ib'
+        'arti'
+        'ob';
+    }
+    .article-container {
+      padding-right: 10vw;
+      border-bottom: 2px solid var(--yellow);
+    }
+    .infoBox {
+      padding-left: 10vw;
+    }
+    .under-work {
+      font-size: 3rem;
+    }
+  }
+}
+
+/*Styles for SVG*/
+
+.mmlogo {
+  fill: var(--white);
+}
+
+.ailogo0,
+.ailogo1 {
+  fill: var(--yellow);
+  fill-rule: nonzero;
+}
+.ailogo2 {
+  fill: var(--yellow);
+}
